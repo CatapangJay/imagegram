@@ -8,10 +8,10 @@ namespace Imagegram.Application.Interfaces
 {
     public interface IUserService
     {
-        public Task<List<PostDto>> GetAll();
-        public Task<PostDto> Get(int id);
-        public Task<int> Create(PostDto postDto);
-        public Task<int> Update(int id, PostDto postDto);
+        public Task<List<ImgramUserDto>> GetAll();
+        public Task<ImgramUserDto> Get(int id);
+        public Task<int> Create(ImgramUserDto postDto);
+        public Task<int> Update(int id, ImgramUserDto postDto);
         public Task<bool> Delete(int id);
     }
 }

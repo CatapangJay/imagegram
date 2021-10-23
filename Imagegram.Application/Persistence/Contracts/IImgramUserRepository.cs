@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Imagegram.Application.Persistence.Contracts
 {
-    public interface IImgramUserRepository : IGenericRepository<Post>
+    public interface IImgramUserRepository : IGenericRepository<ImgramUser>
     {
     }
 }

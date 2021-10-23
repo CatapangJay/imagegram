@@ -1,4 +1,5 @@
-﻿using Imagegram.Application.Persistence.Contracts;
+﻿using Imagegram.Application.Constants;
+using Imagegram.Application.Persistence.Contracts;
 using Imagegram.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -11,10 +12,10 @@ namespace Imagegram.Persistence
 {
     public static class PersistenceServicesRegistration
     {
-        public static IServiceCollection ConfigurePesistenceServices(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection ConfigurePesistenceServices(this IServiceCollection services)
         {
             services.AddDbContext<ImagegramDbContext>(options => 
-                options.UseSqlServer(configuration.GetConnectionString("ImagegramConnectionString"))
+                options.UseSqlServer(EnvironmentVariables.ConnectionString)
             );
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));

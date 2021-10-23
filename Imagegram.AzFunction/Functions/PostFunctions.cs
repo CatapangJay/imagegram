@@ -7,13 +7,21 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Imagegram.Application.Interfaces;
 
 namespace Imagegram.AzFunction.Functions
 {
-    public static class GetPosts
+    public class PostFunctions
     {
+        private readonly IPostService _postService;
+
+        public PostFunctions(IPostService postService)
+        {
+            _postService = postService;
+        }
+
         [FunctionName("posts")]
-        public static async Task<IActionResult> Run(
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {

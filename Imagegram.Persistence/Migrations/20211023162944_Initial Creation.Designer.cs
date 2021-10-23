@@ -139,7 +139,7 @@ namespace Imagegram.Persistence.Migrations
                         .WithMany()
                         .HasForeignKey("UserId");
 
-                    b.Navigation("User");
+                    //b.Navigation("User");
                 });
 
             modelBuilder.Entity("Imagegram.Domain.Post", b =>
@@ -151,12 +151,12 @@ namespace Imagegram.Persistence.Migrations
 
             modelBuilder.Entity("Imagegram.Domain.ImgramUser", b =>
                 {
-                    b.Navigation("Posts");
+                    //b.Navigation("Posts");
                 });
 
             modelBuilder.Entity("Imagegram.Domain.Post", b =>
                 {
-                    b.Navigation("Comments");
+                    //b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }
