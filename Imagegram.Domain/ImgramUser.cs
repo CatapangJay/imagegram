@@ -11,5 +11,6 @@ namespace Imagegram.Domain
         public string MiddleName { get; set; }
         public string LastName { get; set; }
         public string Username { get; set; }
+        public ICollection<Post> Posts { get; set; }
     }
 }

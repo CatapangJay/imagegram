@@ -63,14 +63,12 @@ namespace Imagegram.Application.Services
             return _mapper.Map<List<PostDto>>(posts);
         }
 
-        public async Task<bool> Update(int id, PostDto postDto)
+        public async Task Update(int id, PostDto postDto)
         {
             var post = _mapper.Map<Post>(postDto);
             post.Id = id;
 
             await _postRepository.Update(post);
-
-            return true;
         }
     }
 }
