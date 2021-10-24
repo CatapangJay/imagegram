@@ -19,11 +19,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Imagegram.Domain", "Imagegr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Imagegram.Application", "Imagegram.Application\Imagegram.Application.csproj", "{C255C9A2-FD13-4684-9052-D7E6832641C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imagegram.Infrastructure", "Imagegram.Infrastructure\Imagegram.Infrastructure.csproj", "{EA6812E4-5B00-4E72-BF95-8E0B0A901C40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Imagegram.Infrastructure", "Imagegram.Infrastructure\Imagegram.Infrastructure.csproj", "{EA6812E4-5B00-4E72-BF95-8E0B0A901C40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imagegram.Persistence", "Imagegram.Persistence\Imagegram.Persistence.csproj", "{D8C48993-ED68-4C8B-B034-0984E34A79A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Imagegram.Persistence", "Imagegram.Persistence\Imagegram.Persistence.csproj", "{D8C48993-ED68-4C8B-B034-0984E34A79A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imagegram.AzFunction", "Imagegram.AzFunction\Imagegram.AzFunction.csproj", "{48471C4D-908D-40A1-B81A-F6AF8238ED27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Imagegram.AzFunction", "Imagegram.AzFunction\Imagegram.AzFunction.csproj", "{48471C4D-908D-40A1-B81A-F6AF8238ED27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imagegram.UnitTests", "Imagegram.UnitTests\Imagegram.UnitTests.csproj", "{D0DC1A1E-9E91-4431-85C1-47F4C272394A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{48471C4D-908D-40A1-B81A-F6AF8238ED27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48471C4D-908D-40A1-B81A-F6AF8238ED27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48471C4D-908D-40A1-B81A-F6AF8238ED27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0DC1A1E-9E91-4431-85C1-47F4C272394A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0DC1A1E-9E91-4431-85C1-47F4C272394A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0DC1A1E-9E91-4431-85C1-47F4C272394A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0DC1A1E-9E91-4431-85C1-47F4C272394A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +71,7 @@ Global
 		{EA6812E4-5B00-4E72-BF95-8E0B0A901C40} = {73001A37-5E2B-48CB-ACDF-A1BDB24A0B97}
 		{D8C48993-ED68-4C8B-B034-0984E34A79A7} = {73001A37-5E2B-48CB-ACDF-A1BDB24A0B97}
 		{48471C4D-908D-40A1-B81A-F6AF8238ED27} = {2AEC72FE-B2CA-4E4C-AFE5-2F68FB47F0C8}
+		{D0DC1A1E-9E91-4431-85C1-47F4C272394A} = {7C759F58-020B-4167-A6B6-C7174E962F85}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1E63C16-B4B5-4CBE-8346-1369B145FCAF}
