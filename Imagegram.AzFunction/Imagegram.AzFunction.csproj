@@ -17,6 +17,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Imagegram.Application\Imagegram.Application.csproj" />
+    <ProjectReference Include="..\Imagegram.Infrastructure\Imagegram.Infrastructure.csproj" />
     <ProjectReference Include="..\Imagegram.Persistence\Imagegram.Persistence.csproj" />
   </ItemGroup>
   <ItemGroup>

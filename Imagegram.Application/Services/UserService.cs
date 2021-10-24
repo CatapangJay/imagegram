@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
-using Imagegram.Application.DTOs;
+using Imagegram.Application.Contracts.Persistence;
+using Imagegram.Application.DTOs.ImgramUser;
 using Imagegram.Application.Interfaces;
-using Imagegram.Application.Persistence.Contracts;
 using Imagegram.Domain;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Imagegram.Application.Services
@@ -33,15 +32,20 @@ namespace Imagegram.Application.Services
             throw new NotImplementedException();
         }
 
-        public Task<ImgramUserDto> Get(int id)
+        public async Task<ImgramUserDto> Get(int id)
         {
-            throw new NotImplementedException();
+            var existingUser = await _userRepository.Get(id);
+
+            return _mapper.Map<ImgramUserDto>(existingUser);
         }
 
-        public Task<List<ImgramUserDto>> GetAll()
+        public async Task<List<ImgramUserDto>> GetAll()
         {
-            throw new NotImplementedException();
+            var users = await _userRepository.GetAll();
+
+            return _mapper.Map<List<ImgramUserDto>>(users);
         }
+
 
         public Task<int> Update(int id, ImgramUserDto postDto)
         {

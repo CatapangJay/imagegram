@@ -15,8 +15,8 @@ namespace Imagegram.Persistence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasAnnotation("ProductVersion", "3.1.20")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.11")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Imagegram.Domain.Comment", b =>
@@ -38,7 +38,7 @@ namespace Imagegram.Persistence.Migrations
                     b.Property<DateTime>("LastModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("PostId")
+                    b.Property<int>("PostId")
                         .HasColumnType("int");
 
                     b.Property<string>("Text")
@@ -111,50 +111,42 @@ namespace Imagegram.Persistence.Migrations
                     b.Property<string>("ImgPath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ImgramUserId")
-                        .HasColumnType("int");
-
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("LastModifiedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ImgramUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Posts");
                 });
 
             modelBuilder.Entity("Imagegram.Domain.Comment", b =>
                 {
-                    b.HasOne("Imagegram.Domain.Post", null)
+                    b.HasOne("Imagegram.Domain.Post", "Post")
                         .WithMany("Comments")
-                        .HasForeignKey("PostId");
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Imagegram.Domain.ImgramUser", "User")
-                        .WithMany()
+                        .WithMany("Comments")
                         .HasForeignKey("UserId");
-
-                    //b.Navigation("User");
                 });
 
             modelBuilder.Entity("Imagegram.Domain.Post", b =>
                 {
-                    b.HasOne("Imagegram.Domain.ImgramUser", null)
+                    b.HasOne("Imagegram.Domain.ImgramUser", "User")
                         .WithMany("Posts")
-                        .HasForeignKey("ImgramUserId");
-                });
-
-            modelBuilder.Entity("Imagegram.Domain.ImgramUser", b =>
-                {
-                    //b.Navigation("Posts");
-                });
-
-            modelBuilder.Entity("Imagegram.Domain.Post", b =>
-                {
-                    //b.Navigation("Comments");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

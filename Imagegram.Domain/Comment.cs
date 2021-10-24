@@ -7,7 +7,12 @@ namespace Imagegram.Domain
 {
     public class Comment : BaseDomainEntity
     {
-        public ImgramUser User { get; set; }
         public string Text { get; set; }
+
+        public int PostId { get; set; }
+        public Post Post { get; set; }
+
+        public int? UserId { get; set; }
+        public ImgramUser User { get; set; }
     }
 }

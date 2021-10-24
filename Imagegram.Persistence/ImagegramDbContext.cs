@@ -18,6 +18,14 @@ namespace Imagegram.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ImagegramDbContext).Assembly);
+
+            //modelBuilder.Entity<Post>()
+            //    .Property<int>("ImgramUserId");
+
+            //modelBuilder.Entity<Post>()
+            //    .HasOne(p => p.User)
+            //    .WithMany(u => u.Posts)
+            //    .HasForeignKey("ImgramUserId");
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

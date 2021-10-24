@@ -1,10 +1,5 @@
-﻿using Imagegram.Application.Persistence.Contracts;
+﻿using Imagegram.Application.Contracts.Persistence;
 using Imagegram.Domain;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Imagegram.Persistence.Repositories
 {

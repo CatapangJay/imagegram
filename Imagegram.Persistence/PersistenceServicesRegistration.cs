@@ -1,12 +1,8 @@
 ﻿using Imagegram.Application.Constants;
-using Imagegram.Application.Persistence.Contracts;
+using Imagegram.Application.Contracts.Persistence;
 using Imagegram.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Imagegram.Persistence
 {
@@ -21,6 +17,8 @@ namespace Imagegram.Persistence
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             services.AddScoped<IPostRepository, PostRepository>();
+            services.AddScoped<IImgramUserRepository, ImgramUserRepository>();
+            services.AddScoped<ICommentRepository, CommentRepository>();
 
             return services;
         }

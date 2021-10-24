@@ -3,11 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Imagegram.Application.DTOs
+namespace Imagegram.Application.DTOs.Comment
 {
     public class CommentDto : BaseDto
     {
-        public ImgramUserDto User { get; set; }
+        public int UserId { get; set; }
+        public int PostId { get; set; }
         public string Text { get; set; }
     }
 }

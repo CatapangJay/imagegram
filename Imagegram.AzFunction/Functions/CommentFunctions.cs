@@ -11,21 +11,21 @@ using Imagegram.Application.Interfaces;
 using Imagegram.Application.DTOs;
 using Imagegram.AzFunction.Extensions;
 using System.Linq;
-using Imagegram.Application.DTOs.ImgramUser;
+using Imagegram.Application.DTOs.Comment;
 
 namespace Imagegram.AzFunction.Functions
 {
-    public class UserFunctions
+    public class CommentFunctions
     {
-        private readonly IUserService _userService;
+        private readonly ICommentService _commentService;
 
-        public UserFunctions(IUserService userService)
+        public CommentFunctions(ICommentService commentService)
         {
-            _userService = userService;
+            _commentService = commentService;
         }
 
-        [FunctionName("createUser")]
-        public async Task<IActionResult> CreateUser(
+        [FunctionName("addcomment")]
+        public async Task<IActionResult> AddComment(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
             ILogger log)
         {
@@ -33,16 +33,16 @@ namespace Imagegram.AzFunction.Functions
 
             try
             {
-                HttpResponseBody<ImgramUserDto> requestBody = await req.GetBodyAsync<ImgramUserDto>();
+                HttpResponseBody<CommentDto> requestBody = await req.GetBodyAsync<CommentDto>();
 
                 if (!requestBody.IsValid)
                     return new BadRequestObjectResult($"Model is invalid: {string.Join(", ", requestBody.ValidationResults.Select(s => s.ErrorMessage).ToArray())}");
 
-                ImgramUserDto userDto = requestBody.Value;
+                CommentDto userDto = requestBody.Value;
 
-                await _userService.Create(userDto);
+                await _commentService.AddComment(userDto);
 
-                return new OkObjectResult($"User has been created!");
+                return new OkObjectResult($"Comment has been added!");
             }
             catch (Exception ex)
             {
@@ -50,14 +50,14 @@ namespace Imagegram.AzFunction.Functions
             }
         }
 
-        [FunctionName("getusers")]
-        public async Task<IActionResult> GetUser(
+        [FunctionName("getcomments")]
+        public async Task<IActionResult> GetComments(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request to get users.");
 
-            var users = await _userService.GetAll();
+            var users = await _commentService.GetAll();
 
             return new OkObjectResult(users);
         }

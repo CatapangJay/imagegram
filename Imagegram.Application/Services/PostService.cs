@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using Imagegram.Application.DTOs;
+using Imagegram.Application.Contracts.Persistence;
+using Imagegram.Application.DTOs.Comment;
+using Imagegram.Application.DTOs.Post;
 using Imagegram.Application.Interfaces;
-using Imagegram.Application.Persistence.Contracts;
 using Imagegram.Domain;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Imagegram.Application.Services
@@ -61,6 +61,14 @@ namespace Imagegram.Application.Services
             var posts = await _postRepository.GetAll();
 
             return _mapper.Map<List<PostDto>>(posts);
+        }
+
+        public async Task<List<PostsWithCommentsDto>> GetAllOrderByComments()
+        {
+            // TODO: Implement cursor pagination
+            var posts = await _postRepository.GetPostsOrderByCommentCount("");
+
+            return _mapper.Map<List<PostsWithCommentsDto>>(posts);
         }
 
         public async Task Update(int id, PostDto postDto)

@@ -1,4 +1,5 @@
 ﻿using Imagegram.Application.DTOs;
+using Imagegram.Application.DTOs.Comment;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,10 +9,10 @@ namespace Imagegram.Application.Interfaces
 {
     public interface ICommentService
     {
-        public Task<List<PostDto>> GetAll();
-        public Task<PostDto> Get(int id);
-        public Task<bool> AddComment(int postId, CommentDto commentDto);
-        public Task<bool> UpdateComment(int id, PostDto postDto);
+        public Task<List<CommentDto>> GetAll();
+        public Task<CommentDto> Get(int id);
+        public Task AddComment(CommentDto commentDto);
+        public Task<bool> UpdateComment(int id, CommentDto postDto);
         public Task<bool> Delete(int id);
     }
 }

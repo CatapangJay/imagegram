@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Imagegram.Application.Persistence.Contracts
+namespace Imagegram.Application.Contracts.Persistence
 {
     public interface IPostRepository : IGenericRepository<Post>
     {
